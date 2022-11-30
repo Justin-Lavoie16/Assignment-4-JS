@@ -1,21 +1,42 @@
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-PWA-Test/sw.js", {
-    scope: "/ICS2O-PWA-Test/",
+  navigator.serviceWorker.register("/Assignment-4-JS/sw.js", {
+    scope: "/Assignment-4-JS/",
   })
 }
 
-;("use strict")
+"use strict"
 
-function calculate() {
-  const length = parseInt(document.getElementById("pay").value)
-  const width = parseInt(document.getElementById("pay2").value)
+function myButtonClicked() {
+ 
+  const age = document.getElementById("age").value;
+  const day = document.getElementById("day").value;
+  
+ if((age == "small") && (day == "no")) {
+     document.getElementById("answers").innerHTML =
+      ("You are buying a small poutine with no cheese");
+    
+} else if((age == "small") && (day == "yes")) {
+    document.getElementById("answers").innerHTML =
+      ("You are buying a small poutine with cheese");
 
-  const area = length * width * 0.18
-  const perimeter = length * width * (1.0 - 0.18)
-  const TAX_RATE = 0.18
+ } else if((age == "medium") && (day == "no")) {
+    document.getElementById("answers").innerHTML =
+      ("You are buying a medium poutine with no cheese.");
 
-  document.getElementById("area").innerHTML =
-    "The governemnt will take: " + area + "$"
-  document.getElementById("perimeter").innerHTML =
-    "your pay will be: " + perimeter + "$"
+ } else if((age == "medium") && (day == "yes")) {
+    document.getElementById("answers").innerHTML =
+      ("You are buying a medium poutine with cheese");
+
+ } else if((age == "big") && (day == "no")) {
+    document.getElementById("answers").innerHTML =
+      ("You are buying a large poutine with no cheese");
+
+ } else if((age == "big") && (day == "yes")) {
+    document.getElementById("answers").innerHTML =
+      ("You are buying a large poutine with cheese");
+
+ } else {
+    document.getElementById("answers").innerHTML =
+      ("Uh, are you going to get something??");
+}
 }
